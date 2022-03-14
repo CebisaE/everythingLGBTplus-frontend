@@ -1,10 +1,10 @@
 <template>
-  <h1>ABOUT US</h1>
+  <h1>CART PAGE</h1>
 </template>
 
 <script>
 export default {
-name:'About',
+name: 'Cart',
 components:{
 
 },

@@ -1,13 +1,13 @@
 <template>
-  <h1>ABOUT US</h1>
+  <h1>THIS IS WHAT WE SELL</h1>
 </template>
 
 <script>
 export default {
-name:'About',
-components:{
+name:'Products',
+components: {
 
-},
+}
 }
 </script>
 

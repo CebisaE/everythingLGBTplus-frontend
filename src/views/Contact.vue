@@ -1,11 +1,11 @@
 <template>
-  <h1>ABOUT US</h1>
+  <h1>CONTACT US</h1>
 </template>
 
 <script>
 export default {
-name:'About',
-components:{
+name: 'Contact',
+Components:{
 
 },
 }
