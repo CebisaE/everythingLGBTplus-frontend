@@ -61,7 +61,7 @@ import {
   MDBBtn,
 } from "mdb-vue-ui-kit";
 import { ref } from "vue";
-const url = "";
+const url = "https://everything-lgbt-plus.herokuapp.com/products";
 export default {
   components: {
     MDBModal,

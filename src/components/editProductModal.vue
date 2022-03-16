@@ -55,7 +55,7 @@ import {
   MDBModalFooter,
   MDBBtn,
 } from "mdb-vue-ui-kit";
-const url = "";
+const url = "https://everything-lgbt-plus.herokuapp.com/products";
 import { ref } from "vue";
 export default {
   components: {

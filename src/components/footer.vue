@@ -36,8 +36,8 @@
     bottom:0;
     width: 100%;
 }
-.text-center {
+/* .text-center {
     margin-top: 172px;
     text-align: center!important;
-}
+} */
 </style>
