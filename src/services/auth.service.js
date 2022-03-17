@@ -3,7 +3,7 @@ const API_URL = 'https:/everything-lgbt-plus.herokuapp.com/customer/';
 class AuthService {
   login(customer) {
     return axios
-      .post(API_URL + 'signin', {
+      .patch(API_URL + 'signin', {
         name: customer.name,
         password: customer.password
       })

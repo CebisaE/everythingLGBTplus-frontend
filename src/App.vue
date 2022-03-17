@@ -32,7 +32,7 @@ export default {
 
 #nav a {
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 30px;
   color: #111;
 }
 

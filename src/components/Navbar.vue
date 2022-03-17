@@ -95,6 +95,7 @@ export default {
 <style>
 .logout{
     border-radius: 50%;
+    color: #0000FF;
 
 }
 </style>
