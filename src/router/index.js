@@ -4,7 +4,8 @@ import About from '@/views/About.vue'
 import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import Profile from '@/views/Profile.vue'
-import Products from '@/views/Product.vue'
+import Products from '@/views/products/Product.vue'
+import ProductDetails from '@/views/products/ProductDetails.vue'
 import Cart from '@/views/Cart.vue'
 import Contact from '@/views/Contact.vue'
 
@@ -38,6 +39,11 @@ const routes = [
     path: '/products',
     name: 'Products',
     component: Products
+  },
+  {
+    path: '/products/:id',
+    name: 'ProductDetails',
+    component: ProductDetails,
   },
   {
     path: '/cart',

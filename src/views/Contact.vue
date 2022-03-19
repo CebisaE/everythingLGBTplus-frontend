@@ -234,7 +234,6 @@ form small {
   label {
     width: 100%;
     display: inline-block;
-    float: left;
     clear: both;
   }
 
