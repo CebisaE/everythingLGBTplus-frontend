@@ -2,10 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
 import Login from '@/views/Login.vue'
+import Admin from '@/views/Admin.vue'
+import Dashboard from '@/views/Dashboard.vue'
 import Register from '@/views/Register.vue'
 import Profile from '@/views/Profile.vue'
-import Products from '@/views/products/Product.vue'
-import ProductDetails from '@/views/products/ProductDetails.vue'
+import Products from '@/views/Product.vue'
+import ProductDetails from '@/views/ProductDetails.vue'
 import Cart from '@/views/Cart.vue'
 import Contact from '@/views/Contact.vue'
 
@@ -19,6 +21,16 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: Admin
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
   },
   {
     path: '/login',

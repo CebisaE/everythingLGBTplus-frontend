@@ -36,12 +36,6 @@
       <button v-on:click="navigateTo('cart')" class="btn btn-outline-danger w-100">view cart</button>
       <button v-on:click="navigateTo('products')" class="btn btn-outline-danger w-100">view products</button>
     </header> -->
-
-
-    <!-- <div v-if="page === 'cart'">
-   <Cart v-on:removeItem="removeItem" :cart="cart" />
-    </div> -->
-
     <!-- <div v-if="page === 'product'">
     <Product v-on:addToCart="addToCart" />
     </div> -->
@@ -50,34 +44,27 @@
 <script>
 import addProductModal from "@/components/addProductModal.vue";
 import editProductModal from "@/components/editProductModal.vue";
-import Cart from '../Cart.vue';
+
 export default {
   data() {
     return {
       page: 'product',
       products: [],
-      cart: [],
       ascending: true,
       sortBy: 'alphabetically',
       searchValue: '',
     };
   },
   mounted() {
-    fetch("https://everything-lgbt-plus.herokuapp.com/products")
+    fetch("https://everything-lgbt-plus.herokuapp.com/products/")
       .then((res) => res.json())
       .then((data) => {
         this.products = data;
         console.log(data, this.products);
       });
   },
-   components: { Cart, addProductModal, editProductModal},
+   components: { addProductModal, editProductModal},
 methods:{
-   removeItem(product){
-    this.cart.splice(this.cart.indexOf(product),1);
-  },
-  addToCart(product){
-  this.cart.push(product);
-  },
   navigateTo(page){
     this.page = page;
   },
@@ -107,7 +94,7 @@ methods:{
       })
       
       if (!this.ascending) {
-        	tempProducts.reverse()
+        tempProducts.reverse()
       }
       
       return tempProducts

@@ -2,6 +2,9 @@
 <div id="nav">
  <Navbar/>
 </div>
+<div id="footer">
+  <Footer/>
+  </div>
   <router-view/>
 </template>
 <script>

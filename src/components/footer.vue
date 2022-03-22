@@ -3,7 +3,7 @@
 <template>
   <MDBFooter
     bg="none"
-    :text="['center', 'white']"
+    :text="['center', 'black']"
     style="background-color: #0a4275"
     class="footer"
 
@@ -32,8 +32,8 @@
 <style>
 .footer{
     padding-bottom: 0;
-    /* position: absolute; */
-    bottom:0;
+    position: absolute;
+    bottom:10px;
     width: 100%;
 }
 /* .text-center {
