@@ -1,4 +1,22 @@
 <template>
+
+    <div id="sorting-bar">
+      
+      <button @click="ascending = !ascending" class="sort-button">
+        <span v-if="ascending">ascending <i class="fa fa-sort-up"></i></span>
+        <span v-else>descending <i class="fa fa-sort-down"></i></span>
+      </button>
+      
+      <select name="sortBy" id="select" v-model="sortBy">
+        <option value="alphabetically">Alphabetically</option>
+        <option value="price">price</option>
+      </select>
+      
+      <div class="search-wrapper">
+        <input type="text" v-model="searchValue" placeholder="Search Event" id="search-input"/> 
+        <i class="fa fa-search"></i>
+      </div>
+    </div>
  <div class='container-fluid' v-for="product in products" :key="product.id"> 
     <div class="card mx-auto col-md-3 col-10 mt-5" v-if="products" > 
       <img class='mx-auto img-thumbnail' :src="product.img" width="96" height="100" alt="" />
@@ -39,6 +57,9 @@ export default {
       page: 'product',
       products: [],
       cart: [],
+      ascending: true,
+      sortBy: 'alphabetically',
+      searchValue: '',
     };
   },
   mounted() {
@@ -60,48 +81,79 @@ methods:{
   navigateTo(page){
     this.page = page;
   },
-// SORT BY CATEGORY
- sortCategory() {
-  let category = document.querySelector("#sortCategory").value;
-  if (category == "All") {
-    return readProducts(product);
+},
+  computed: {
+    filteredProducts() {
+      let tempProducts =this.products
+      
+      if(this.searchValue != '' && this.searchValue) {
+        tempProducts = tempProducts.filter((item) => {
+          return item.title.toLowerCase().includes(this.searchValue.toLowerCase()) || item.description.toLowerCase().includes(this.searchValue.toLowerCase())
+        })
+      }
+      
+      tempProducts = tempProducts.sort((a, b) => {
+        if (this.sortBy == 'alphabetically') {
+          let fa = a.title.toLowerCase(), fb = b.title.toLowerCase()
+
+          if (fa < fb) {
+            return -1
+          }
+          if (fa > fb) {
+            return 1 
+          }
+          return 0
+        }
+      })
+      
+      if (!this.ascending) {
+        	tempProducts.reverse()
+      }
+      
+      return tempProducts
+    }
   }
-  let foundProducts = product.filter((product) => {
-    return product.category == category;
-  });
-  readProducts(foundProduct);
-  console.log(foundProduct);
-},
-// SORT BY NAME
- sortName() {
-  let direction = document.querySelector("#sortName").value;
-  let sortedProduct = product.sort((a, b) => {
-    if (a.name.toLowerCase() < b.name.toLowerCase()) {
-      return -1;
-    }
-    if (a.name.toLowerCase() > b.name.toLowerCase()) {
-      return 1;
-    }
-    return 0;
-  });
-  if (direction == "descending") sortedProduct.reverse();
-  console.log(sortedProduct);
-  readProducts(product);
-},
-// SORT BY PRICE
- sortPrice() {
-  let direction = document.querySelector("#sortPrice").value;
-  let sortedProduct = Product.sort((a, b) => a.price - b.price);
-  console.log(sortedProduct);
-  if (direction == "descending") sortedProduct.reverse();
-  readProducts(sortedProduct);
-}
 }
 
-  };
 </script>
 
 <style>
+ a {
+    color: #4fc08d;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+
+  button,
+  select,
+  input {
+    color: #4fc08d;
+    background: none;
+    border: solid 1px;
+    border-radius: 2em;
+    font: inherit;
+    padding: 0.75em 2em;
+    cursor: pointer;
+  }
+
+  #sorting-bar {
+    margin: 2rem 0;
+      }
+    .search-wrapper {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+          }
+      .fa-search {
+        position: absolute;
+        right: 1rem;
+        color: #4fc08d;
+      }
+
+
+  
 .details {
     border: 1.5px solid grey;
     color: #212121;
