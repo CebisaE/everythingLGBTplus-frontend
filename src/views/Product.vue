@@ -1,22 +1,30 @@
 <template>
-
-    <div id="sorting-bar">
-      
-      <button @click="ascending = !ascending" class="sort-button">
-        <span v-if="ascending">ascending <i class="fa fa-sort-up"></i></span>
-        <span v-else>descending <i class="fa fa-sort-down"></i></span>
-      </button>
-      
-      <select name="sortBy" id="select" v-model="sortBy">
-        <option value="alphabetically">Alphabetically</option>
-        <option value="price">price</option>
-      </select>
-      
-      <div class="search-wrapper">
-        <input type="text" v-model="searchValue" placeholder="Search Event" id="search-input"/> 
-        <i class="fa fa-search"></i>
-      </div>
+<div class="contained">
+<div class="sortBar">
+      <label>
+        Sort Price:
+        <select v-model="price" @change="sortPrice(price)">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </label>
+      <label>
+        Sort Name:
+        <select v-model="name" @change="sortName(name)">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </label>
+      <label>
+        Filter Category:
+        <select v-model="category" @change="filterCategory(category)">
+          <option value="">All</option>
+          <option value="accessories">Male</option>
+          <option value="jersey">Female</option>
+        </select>
+      </label>
     </div>
+ 
     <div id="products">
  <div v-for="product in products" :key="product.id"> 
     <div class="card  row col-10 mt-5" v-if="products" > 
@@ -35,13 +43,20 @@
     </div>
 </div>
 </div>
+</div>
 </template>
 
 <script>
 import addProductModal from "@/components/addProductModal.vue";
 import editProductModal from "@/components/editProductModal.vue";
+import Productfilter from "@/components/Productfilter.vue";
 
 export default {
+
+  props: ["product", "idx"],
+  mounted() {
+    console.log(this.product);
+  },
   data() {
     return {
       page: 'product',
@@ -49,53 +64,57 @@ export default {
       ascending: true,
       sortBy: 'alphabetically',
       searchValue: '',
+      //  product: null,
+      filteredProducts: null,
+      price: "",
+      name: "",
+      category: "",
     };
   },
   mounted() {
     fetch("https://everything-lgbt-plus.herokuapp.com/products/")
       .then((res) => res.json())
-      .then((data) => {
+       .then((data) => {
+          console.log(data)
         this.products = data;
-        console.log(data, this.products);
-      });
+        this.filteredProducts = data;
+      })
+      .catch((err) => console.log(err));
   },
-   components: { addProductModal, editProductModal},
+   components: { addProductModal, editProductModal, Productfilter},
 methods:{
   navigateTo(page){
     this.page = page;
   },
-},
-  computed: {
-    filteredProducts() {
-      let tempProducts =this.products
-      
-      if(this.searchValue != '' && this.searchValue) {
-        tempProducts = tempProducts.filter((item) => {
-          return item.title.toLowerCase().includes(this.searchValue.toLowerCase()) || item.description.toLowerCase().includes(this.searchValue.toLowerCase())
-        })
-      }
-      
-      tempProducts = tempProducts.sort((a, b) => {
-        if (this.sortBy == 'alphabetically') {
-          let fa = a.title.toLowerCase(), fb = b.title.toLowerCase()
-
-          if (fa < fb) {
-            return -1
-          }
-          if (fa > fb) {
-            return 1 
-          }
-          return 0
+   sortPrice(dir) {
+      this.filteredProducts = this.filteredProducts.sort(
+        (a, b) => a.price- b.price
+      );
+      if (dir == "desc") this.filteredProducts.reverse();
+    },
+    sortName(dir) {
+      this.filteredProducts = this.filteredProducts.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
         }
-      })
-      
-      if (!this.ascending) {
-        tempProducts.reverse()
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      });
+      if (dir == "desc") this.filteredProducts.reverse();
+    },
+    filterCategory(category) {
+      if (category) {
+        this.filteredProducts = this.product.filter(
+          (product) => product.category == category
+        );
+      } else {
+        this.filteredProducts = this.product;
       }
-      
-      return tempProducts
-    }
-  }
+    },
+},
+  
 }
 
 </script>
