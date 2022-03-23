@@ -1,4 +1,5 @@
 <template>
+<div id="about">
 <header>
   <h1 class="text-centers">ABOUT EVERYTHING LGBT+</h1>
   <h3 class="text-center">Everything lgbt+ is an online store that was created to sell lgbtqi community clothes.</h3>
@@ -7,54 +8,52 @@
   <div class="container">
     <div class="row">
       <h2 class="text-centers">A breakdown of the letters LGBTQI</h2>
-      <div class="col-sm-6 col-lg-3"><div class="services-info text-center">
+      <div class="col-sm-8 col-lg-4"><div class="services-info text-center">
           <h4>Lesbian</h4>
           <p> A lesbian
-          is a woman who is physically           and romantically attracted              to other women. </p>
+          is a woman who is physically  and romantically attracted  to other women. </p>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-3">
+      <div class="col-sm-8 col-lg-4">
         <div class="services-info text-center">
           <h4>Gay</h4>
           <p>  A gay is a man that is physically and 
-      romantically attracted to other        men.</p>
+      romantically attracted to other men.</p>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-3">
+      <div class="col-sm-8 col-lg-4">
         <div class="services-info text-center">
           <h4>Bisexual</h4>
-          <p>Bisexuality is an         attraction to more than one gender
-        Those who identify as bisexual feel a sexual and/or 
-        romantic attraction to people of a different gender as well as their own.</p>
+          <p>sexually attracted not exclusively to people of one particular gender; attracted to both men and women.</p>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-3">
+      <div class="col-sm-8 col-lg-4">
         <div class="services-info text-center">
           <h4>Transgender</h4>
           <p>Transgender people
         have a gender identity or gender expression that  differs from the sex that they were assigned at birth.</p>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-3">
+      <div class="col-sm-8 col-lg-4">
         <div class="services-info text-center">
           <h4>Queer</h4>
           <p>Queer 
         is a word that describes sexual and gender identities other than straight and cisgender</p>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-3">
+      <div class="col-sm-8 col-lg-4">
         <div class="services-info text-center">
           <h4>Intersex</h4>
-          <p> Intersex is a general term used for a variety of situations in which a person is born with reproductive or sexual anatomy that doesn't fit the boxes of “female” or “male.” </p>
+          <p> Intersex people are born with sex characteristics (including genitals, gonads and chromosome patterns) that do not fit typical binary notions of male or female. </p>
         </div>
       </div>
-        <div class="col-sm-6 col-lg-3">
+        <div class="col-sm-8 col-lg-4">
         <div class="services-info text-center">
           <h4>Pansexual</h4>
-          <p>Pansexuality is sexual, romantic, or emotional attraction towards people regardless of their sex or gender identity. Pansexual people may refer to themselves as gender-blind, asserting that gender and sex are not determining factors  in their romantic or sexual attraction to others </p>
+          <p>not limited in sexual choice with regard to biological sex, gender, or gender identity.</p>
         </div>
       </div>
-        <div class="col-sm-6 col-lg-3">
+        <div class="col-sm-8 col-lg-4">
         <div class="services-info text-center">
     <h4>Asexual</h4>
           <p> Asexual is the lack of sexual attraction to others, or a low interest in sexual activity. </p>
@@ -63,6 +62,7 @@
     </div>
   </div>
 </section>
+</div>
 </template>
 
 <script>
@@ -74,16 +74,20 @@
 </script>
 
 <style>
-body {
+/* body {
 	font-size: 16px !important;
 	background: #fff !important;
+} */
+#about{
+  width: 100%;
+  height: 100vh;
 }
 h1, h2, h3, h4, a, p {
 	font-family: 'Alegreya Sans', sans-serif !important;
 }
 header {
 	background: #fff;
-	padding: 60px;
+	padding: 115px;
 }
 header h1, 
 header h3,
@@ -97,7 +101,7 @@ header h3,
 }
 
 .services .services-info {
-	margin: 0 0 30px;
+	/* margin: 0 0 30px; */
 	padding: 10px;
 	border: 5px solid #FFFF00;
 	border-radius: 3px;
@@ -128,7 +132,7 @@ header h3,
 @media only screen and (min-width: 641px) {
 
 	header {
-		padding-bottom: 130px;
+		padding-bottom: 50px;
 	}
 	.services .row {
 		margin-top: -70px;

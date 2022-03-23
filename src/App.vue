@@ -25,18 +25,17 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #111;
+  /* overflow-y: hidden; */
 }
 
-#nav {
-  padding: 30px;
-}
+
 
 #nav a {
   font-weight: bolder;
   font-size: 30px;
-  color: #111;
+  /* color: #111; */
 }
 
 #nav a.router-link-exact-active {

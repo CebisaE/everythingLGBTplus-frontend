@@ -107,9 +107,9 @@ body {
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  background: #111;
+  background: #fff;
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  /* box-shadow: 0 15px 25px rgba(0,0,0,.6); */
   border-radius: 10px;
 }
 
@@ -133,7 +133,7 @@ body {
   color: #fff;
   margin-bottom: 30px;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 9px solid #fff;
   outline: none;
   background: transparent;
 }

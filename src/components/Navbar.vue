@@ -1,70 +1,54 @@
 <template>
-  <MDBNavbar light bg="white" expand="lg" container>
-    <MDBNavbarBrand href="#"><img src="https://i.postimg.cc/nryxFKvr/rsz-1download.png" class="logo">
-        Everything LGBT+</MDBNavbarBrand>
-   <MDBNavbarToggler
-      target="#navbarRightAlignExample"
-      @click="collapse5 = !collapse5"
-    ></MDBNavbarToggler>
-    <MDBCollapse v-model="collapse5" id="navbarRightAlignExample">
-      <MDBNavbarNav right class="mb-2 mb-lg-0">
-    <MDBNavbarItem router-link to="/">
-          Home
-        </MDBNavbarItem>
-      <MDBNavbarItem router-link :to="{name:'About'}">
-          About
-        </MDBNavbarItem>
-        
-        <MDBNavbarItem router-link :to="{name:'Login'}">
-          Login
-        </MDBNavbarItem>
-     <MDBNavbarItem router-link :to="{name:'Register'}">
-          Register
-        </MDBNavbarItem>
-         <MDBNavbarItem router-link v-if="currentCustomer" :to="{name:'Profile'}">
-          Profile
-        </MDBNavbarItem> 
-        <MDBNavbarItem router-link :to="{name:'Products'}">
-          Products
-        </MDBNavbarItem>
-        <MDBNavbarItem router-link v-if="currentCustomer" :to="{name:'Cart'}">
-          Cart
-        </MDBNavbarItem>
-          <MDBNavbarItem router-link :to="{name:'Contact'}">
-          Contact
-        </MDBNavbarItem>
+  <nav class="navbar navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand"><img src="https://i.postimg.cc/nryxFKvr/rsz-1download.png" class="logo">Everything LGBT+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="https://i.postimg.cc/nryxFKvr/rsz-1download.png" class="logo">Everything LGBT+</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{name:'About'}">About</router-link>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Join Us
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+              <li><router-link class="dropdown-item" :to="{name:'Login'}">Login</router-link></li>
+              <li><router-link class="dropdown-item" :to="{name:'Register'}">Register</router-link></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link"  :to="{name:'Products'}">Products</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link"  v-if="currentCustomer" :to="{name:'Cart'}">Cart</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link"  :to="{name:'Contact'}">Contact</router-link>
+          </li>
+        </ul>
         <button class="btn" v-if="currentCustomer" @click="logOut">Logout</button>
-    </MDBNavbarNav>
-       </MDBCollapse>
-  </MDBNavbar>
+      </div>
+    </div>
+  </div>
+</nav>
 </template>
 
 <script>
- import {
-    MDBNavbar,
-    MDBNavbarToggler,
-    MDBNavbarBrand,
-    MDBNavbarNav,
-    MDBNavbarItem,
-    MDBCollapse,
-    MDBDropdown,
-    MDBDropdownToggle,
-    MDBDropdownMenu,
-    MDBDropdownItem
-  } from 'mdb-vue-ui-kit';
    import { ref } from 'vue';
 export default {
  components: {
-      MDBNavbar,
-      MDBNavbarToggler,
-      MDBNavbarBrand,
-      MDBNavbarNav,
-      MDBNavbarItem,
-      MDBCollapse,
-      MDBDropdown,
-      MDBDropdownToggle,
-      MDBDropdownMenu,
-      MDBDropdownItem
+    
     },
     setup() {
       const collapse6 = ref(false);
@@ -93,6 +77,9 @@ export default {
 </script>
 
 <style>
+.logo{
+  border-radius: 90%;
+}
 .logout{
     border-radius: 50%;
     color: #0000FF;

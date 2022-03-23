@@ -4,16 +4,16 @@
   <MDBFooter
     bg="none"
     :text="['center', 'black']"
-    style="background-color: #0a4275"
+    style="background-color: #fff"
+    
     class="footer"
 
   >
     <div
-      class="text-center p-1"
-      style="background-color: rgba(0, 0, 0, 0.2)"
+      class="footer-text"
     >
       © 2022 Copyright:
-      <p class="text-white m-1" 
+      <p class="text-black" 
         >Everything LGBT+</p> 
     </div>
   </MDBFooter>
@@ -32,12 +32,12 @@
 <style>
 .footer{
     padding-bottom: 0;
-    position: absolute;
-    bottom:10px;
+    position: fixed;
+    bottom:15px;
     width: 100%;
 }
-/* .text-center {
-    margin-top: 172px;
-    text-align: center!important;
-} */
+.footer-text{
+  font-size: 30px;
+  font-weight: bold;
+}
 </style>

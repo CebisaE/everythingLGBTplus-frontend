@@ -17,28 +17,24 @@
         <i class="fa fa-search"></i>
       </div>
     </div>
- <div class='container-fluid' v-for="product in products" :key="product.id"> 
-    <div class="card mx-auto col-md-3 col-10 mt-5" v-if="products" > 
-      <img class='mx-auto img-thumbnail' :src="product.img" width="96" height="100" alt="" />
-        <div class="card-body text-center mx-auto">
+    <div id="products">
+ <div v-for="product in products" :key="product.id"> 
+    <div class="card  row col-10 mt-5" v-if="products" > 
+      <div class="col-sm-3">  
+      <img class=' img-thumbnail' :src="product.img" width="96" height="200" alt="" />
+        <div class="card-body text-center">
             <div class='cvp'>
                 <h5 class="card-title font-weight-bold">{{product.title}}</h5>
-                <p class="card-text">{{product.price}}</p> 
+                <p class="card-text">R{{product.price}}</p> 
                 <router-link :to="{name:'ProductDetails', params: {id: product._id}}">
                     VIEW PRODUCT
                 </router-link>
             </div>
         </div>
+      </div>
     </div>
 </div>
-<!-- <header>
-      {{cart.length}} in cart
-      <button v-on:click="navigateTo('cart')" class="btn btn-outline-danger w-100">view cart</button>
-      <button v-on:click="navigateTo('products')" class="btn btn-outline-danger w-100">view products</button>
-    </header> -->
-    <!-- <div v-if="page === 'product'">
-    <Product v-on:addToCart="addToCart" />
-    </div> -->
+</div>
 </template>
 
 <script>
@@ -160,13 +156,18 @@ methods:{
     padding-top: 9px;
     box-shadow: 0px 5px 10px #212121
 }
-
+#products{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+}
 .card {
     width: fit-content
 }
 
 .card-body {
-    width: fit-content
+    width: fit-content;
+    justify-content:center;
 }
 
 .btn {
@@ -174,7 +175,9 @@ methods:{
 }
 
 .img-thumbnail {
-    border: none
+    border: none;
+    width: 50%;
+    height: 50%
 }
 
 .card {

@@ -135,20 +135,25 @@ body {
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  background: #111;
+  background: #fff;
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  /* box-shadow: 0 15px 25px rgba(0,0,0,.6); */
   border-radius: 10px;
 }
 
 .login-box h2 {
   margin: 0 0 30px;
   padding: 0;
-  color: #fff;
+  color: #111;
   text-align: center;
+  font-weight: bold;
+
 }
 .login-box p{
-  color:#fff;
+  color:#111;
+  /* font-size: 16px; */
+  font-weight: bold;
+
 }
 .login-box .user-box {
   position: relative;
@@ -158,7 +163,7 @@ body {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: #111;
   margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid #fff;
@@ -171,7 +176,7 @@ body {
   left: 0;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: #111;
   pointer-events: none;
   transition: .5s;
 }
@@ -180,8 +185,9 @@ body {
 .login-box .user-box input:valid ~ label {
   top: -20px;
   left: 0;
-  color: #03e9f4;
-  font-size: 12px;
+  color: #111;
+  font-size: 19px;
+  font-weight: bold;
 }
 
 .login-box form a {

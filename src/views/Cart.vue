@@ -12,11 +12,11 @@
           <div class="row">
             <div class="mr-2">
               <p>Unique Price</p>
-              <p>${{ product.price }}</p>
+              <p>R{{ product.price }}</p>
             </div>
             <div class="mr-2">
               <p>Total Price</p>
-              <p>${{ price * quantity }}</p>
+              <p>R{{ price * quantity }}</p>
             </div>
           </div>
         </a>

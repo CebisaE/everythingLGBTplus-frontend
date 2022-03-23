@@ -88,9 +88,9 @@ div, textarea, input {
 }
 
 .container {
-  max-width: 510px;
-  min-width: 324px;
-  margin: 50px auto 0px;
+  /* max-width: 300px; */
+  /* min-width: 300px; */
+  margin: 205px auto 0px;
   background-color: #fff;
   border: 1px solid #cfcfcf;
   border-bottom: 3px solid #ccc;
