@@ -2,10 +2,13 @@
 <div id="nav">
  <Navbar/>
 </div>
+  <main>
+
+  <router-view/>
+  </main>
 <div id="footer">
   <Footer/>
   </div>
-  <router-view/>
 </template>
 <script>
 import Navbar from "@/components/Navbar.vue"
@@ -40,6 +43,10 @@ export default {
 
 #nav a.router-link-exact-active {
   color:#FF0000;
+}
+
+main{
+  margin-top: 115px
 }
  /* #FFFF00 */
  /* #008000 */

@@ -4,6 +4,7 @@
       <label>
         Sort Price:
         <select v-model="price" @change="sortPrice(price)">
+            <option value="">All</option>
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
         </select>
@@ -11,18 +12,21 @@
       <label>
         Sort Name:
         <select v-model="name" @change="sortName(name)">
+            <option value="">All</option>
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
         </select>
       </label>
-      <label>
+      <!-- <label>
         Filter Category:
-        <select v-model="category" @change="filterCategory(category)">
+        <select v-model="category" @change="Category(category)">
           <option value="">All</option>
-          <option value="accessories">Male</option>
-          <option value="jersey">Female</option>
+          <option value="Accesory">Accessory</option>
+          <option value="T-shirt">T-shirt</option>
+          <option value="Jersey">Jersey</option>
+          <option value="Hat">Hat</option>
         </select>
-      </label>
+      </label> -->
     </div>
  
     <div id="products">
@@ -49,7 +53,7 @@
 <script>
 import addProductModal from "@/components/addProductModal.vue";
 import editProductModal from "@/components/editProductModal.vue";
-import Productfilter from "@/components/Productfilter.vue";
+// import Productfilter from "@/components/Productfilter.vue";
 
 export default {
 
@@ -60,7 +64,6 @@ export default {
   data() {
     return {
       page: 'product',
-      products: [],
       ascending: true,
       sortBy: 'alphabetically',
       searchValue: '',
@@ -81,7 +84,7 @@ export default {
       })
       .catch((err) => console.log(err));
   },
-   components: { addProductModal, editProductModal, Productfilter},
+   components: { addProductModal, editProductModal},
 methods:{
   navigateTo(page){
     this.page = page;
@@ -104,15 +107,15 @@ methods:{
       });
       if (dir == "desc") this.filteredProducts.reverse();
     },
-    filterCategory(category) {
-      if (category) {
-        this.filteredProducts = this.product.filter(
-          (product) => product.category == category
-        );
-      } else {
-        this.filteredProducts = this.product;
-      }
-    },
+    // Category(category) {
+    //   if (category) {
+    //     this.filteredProducts = this.filter(
+    //       (product) =>category == category
+    //     );
+    //   } else {
+    //     this.filteredProducts = this.category;
+    //   }
+    // },
 },
   
 }
@@ -203,5 +206,9 @@ methods:{
     box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
     border-radius: 5px;
     padding-bottom: 10px
+}
+.sortBar {
+  padding: 20px;
+  margin-top: 10%;
 }
 </style>

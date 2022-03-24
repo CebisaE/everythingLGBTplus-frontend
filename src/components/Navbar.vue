@@ -25,6 +25,7 @@
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><router-link class="dropdown-item" :to="{name:'Login'}">Login</router-link></li>
               <li><router-link class="dropdown-item" :to="{name:'Register'}">Register</router-link></li>
+              <li><router-link class="dropdown-item" :to="{name:'Dashboard'}">Dashboard</router-link></li>
             </ul>
           </li>
           <li class="nav-item">

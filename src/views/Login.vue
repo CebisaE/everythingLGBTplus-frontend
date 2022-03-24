@@ -36,6 +36,7 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import Customer from '../models/customer';
 export default {
   name: "Login",
   components: {
@@ -49,6 +50,7 @@ export default {
     password: yup.string().required("Password is required")
     });
     return {
+      customer: new Customer('',''),
       loading: false,
       message: "",
       schema,

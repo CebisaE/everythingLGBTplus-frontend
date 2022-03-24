@@ -36,12 +36,18 @@
           </button>
     </div>
   </form>
+  <div
+        v-if="message"
+        class="alert"
+        :class="successful ? 'alert-success' : 'alert-danger'"
+      >{{message}}</div>
 </div>
 </template>
 
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import Customer from '../models/customer'
 export default {
   name: "Register",
   components: {
@@ -71,6 +77,7 @@ export default {
         .required("Password is required!")
     });
     return {
+      customer:new Customer ('',''),
       successful: false,
       loading: false,
       message: "",
@@ -89,7 +96,7 @@ export default {
   },
   methods: {
     handleRegister(customer) {
-      console.log("we made it")
+      // console.log("we made it")
       this.message = "";
       this.successful = false;
       this.loading = true;

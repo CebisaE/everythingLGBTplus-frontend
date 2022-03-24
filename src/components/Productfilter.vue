@@ -41,16 +41,7 @@ export default {
 </script>
 <style >
 
-.sortBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  background-color: white;
-  padding: 20px;
-  margin-top: 50%;
-}
+
 #user-list {
   display: flex;
   flex-wrap: wrap;

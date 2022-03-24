@@ -5,7 +5,7 @@
   <h3 class="text-center">Everything lgbt+ is an online store that was created to sell lgbtqi community clothes.</h3>
 </header>
 <section class="services">
-  <div class="container">
+  <div class="container-about">
     <div class="row">
       <h2 class="text-centers">A breakdown of the letters LGBTQI</h2>
       <div class="col-sm-8 col-lg-4"><div class="services-info text-center">
@@ -101,7 +101,7 @@ header h3,
 }
 
 .services .services-info {
-	/* margin: 0 0 30px; */
+	margin: 10px;
 	padding: 10px;
 	border: 5px solid #FFFF00;
 	border-radius: 3px;
@@ -118,7 +118,10 @@ header h3,
 	padding: 3px;
 	border-bottom: 1px dashed #222;
 }
-
+.container-about{
+  border: 6px solid #111;
+    margin: 10%;
+}
 .services a:hover {
 	text-decoration: none;
   color: #2A6496;
