@@ -26,14 +26,7 @@ export default {
           error.toString();
       }
     );
-    fetch("https://everything-lgbt-plus.herokuapp.com/customer/")
-      .then((res) => res.json())
-       .then((data) => {
-          console.log(data)
-        this.products = data;
-        this.filteredProducts = data;
-      })
-      .catch((err) => console.log(err));
+    
   },
   }
 </script>

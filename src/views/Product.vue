@@ -17,16 +17,6 @@
           <option value="desc">Descending</option>
         </select>
       </label>
-      <!-- <label>
-        Filter Category:
-        <select v-model="category" @change="Category(category)">
-          <option value="">All</option>
-          <option value="Accesory">Accessory</option>
-          <option value="T-shirt">T-shirt</option>
-          <option value="Jersey">Jersey</option>
-          <option value="Hat">Hat</option>
-        </select>
-      </label> -->
     </div>
  
     <div id="products">
@@ -53,21 +43,16 @@
 <script>
 import addProductModal from "@/components/addProductModal.vue";
 import editProductModal from "@/components/editProductModal.vue";
-// import Productfilter from "@/components/Productfilter.vue";
 
 export default {
-
   props: ["product", "idx"],
-  mounted() {
-    console.log(this.product);
-  },
   data() {
     return {
       page: 'product',
       ascending: true,
       sortBy: 'alphabetically',
       searchValue: '',
-      //  product: null,
+       product: null,
       filteredProducts: null,
       price: "",
       name: "",
@@ -75,47 +60,29 @@ export default {
     };
   },
   mounted() {
-    fetch("https://everything-lgbt-plus.herokuapp.com/products/")
-      .then((res) => res.json())
-       .then((data) => {
-          console.log(data)
-        this.products = data;
-        this.filteredProducts = data;
-      })
-      .catch((err) => console.log(err));
+   this.$store.dispatch('getProducts')
+   this.$store.dispatch('filteredproducts')
   },
+  computed:{
+    products(){
+      return this.$store.state.products
+    },
+    filteredproducts(){
+      return this.$store.state.filteredproducts
+    },
+  },
+
    components: { addProductModal, editProductModal},
 methods:{
   navigateTo(page){
     this.page = page;
   },
    sortPrice(dir) {
-      this.filteredProducts = this.filteredProducts.sort(
-        (a, b) => a.price- b.price
-      );
-      if (dir == "desc") this.filteredProducts.reverse();
+      this.$store.commit('sortPrice', dir)
     },
-    sortName(dir) {
-      this.filteredProducts = this.filteredProducts.sort((a, b) => {
-        if (a.name < b.name) {
-          return -1;
-        }
-        if (a.name > b.name) {
-          return 1;
-        }
-        return 0;
-      });
-      if (dir == "desc") this.filteredProducts.reverse();
-    },
-    // Category(category) {
-    //   if (category) {
-    //     this.filteredProducts = this.filter(
-    //       (product) =>category == category
-    //     );
-    //   } else {
-    //     this.filteredProducts = this.category;
-    //   }
-    // },
+    sortName(dir){
+      this.$store.commit('sortName', dir)
+    }
 },
   
 }

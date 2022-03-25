@@ -99,7 +99,6 @@ body {
   margin:0;
   padding:0;
   font-family: sans-serif;
-  /* background: linear-gradient(#141e30, #243b55); */
 }
 
 .login-box {
@@ -111,7 +110,6 @@ body {
   transform: translate(-50%, -50%);
   background: #fff;
   box-sizing: border-box;
-  /* box-shadow: 0 15px 25px rgba(0,0,0,.6); */
   border-radius: 10px;
 }
 

@@ -74,10 +74,6 @@
 </script>
 
 <style>
-/* body {
-	font-size: 16px !important;
-	background: #fff !important;
-} */
 #about{
   width: 100%;
   height: 100vh;
@@ -97,7 +93,6 @@ header h1 {
 header h3, 
 .services .row {
 	background: #fff;
-/* 	border: 5px solid #8b844e; */
 }
 
 .services .services-info {
