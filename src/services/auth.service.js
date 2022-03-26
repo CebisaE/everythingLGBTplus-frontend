@@ -1,9 +1,9 @@
 import axios from 'axios';
-const API_URL = 'https:/everything-lgbt-plus.herokuapp.com/customer/';
+const API_URL = 'https:/everything-lgbt-plus.herokuapp.com/api/auth/';
 class AuthService {
   login(customer) {
     return axios
-      .post(API_URL + 'signin', {
+      .patch(API_URL + 'signin', {
         name: customer.name,
         password: customer.password
       })
