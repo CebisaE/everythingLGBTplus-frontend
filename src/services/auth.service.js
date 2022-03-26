@@ -3,7 +3,7 @@ const API_URL = 'https:/everything-lgbt-plus.herokuapp.com/customer/';
 class AuthService {
   login(customer) {
     return axios
-      .patch(API_URL + 'signin', {
+      .patch(API_URL + 'signin',{ headers: { 'Access-Control-Allow-Origin': "*"}}, {
         name: customer.name,
         password: customer.password
       })
