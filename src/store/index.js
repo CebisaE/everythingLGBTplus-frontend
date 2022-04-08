@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import { auth } from "./auth.module";
+import { auth } from "./auth-module";
 const store = createStore({
   state:{
     products: [],
@@ -50,7 +50,7 @@ const store = createStore({
       .catch((err) => console.log(err));
     },
     getCustomers({commit}){
-    fetch("https://everything-lgbt-plus.herokuapp.com/customer/")
+    fetch("https://everything-lgbt-plus.herokuapp.com/customers")
       .then((res) => res.json())
        .then((data) => {
           console.log(data)
@@ -60,7 +60,7 @@ const store = createStore({
     }
   },
   modules: {
-    auth,
+    auth
   },
 });
 export default store;

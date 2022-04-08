@@ -38,7 +38,7 @@
             <router-link class="nav-link"  :to="{name:'Contact'}">Contact</router-link>
           </li>
         </ul>
-        <button class="btn" v-if="currentCustomer" @click="logOut">Logout</button>
+       
       </div>
     </div>
   </div>
@@ -48,9 +48,12 @@
 <script>
    import { ref } from 'vue';
 export default {
- components: {
-    
-    },
+//  computed: {
+//     currentCustomer() {
+//       return this.$store.state.auth.customer;
+//     },
+   
+//   },
     setup() {
       const collapse6 = ref(false);
       const dropdown9 = ref(false);
@@ -63,17 +66,9 @@ export default {
         toggleNav() {
             this.isActive = !this.isActive;
         },
-        logOut() {
-      this.$store.dispatch('auth/logout');
-      this.$router.push('/login');
-    }
-    },
-    computed: {
-    currentCustomer() {
-      return this.$store.state.auth.customer;
+
     },
    
-  }
 }
 </script>
 
@@ -81,9 +76,5 @@ export default {
 .logo{
   border-radius: 90%;
 }
-.logout{
-    border-radius: 50%;
-    color: #0000FF;
 
-}
 </style>

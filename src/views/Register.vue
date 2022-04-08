@@ -2,7 +2,7 @@
 <div class="login-box">
   <h2>Register</h2>
   <p>Welcome back please register to continue !</p>
-  <Form @submit="handleRegister" >
+  <Form @submit="handleRegister" :validation-schema="schema">
       <div v-if="!successful">
     <div class="user-box">
       <Field name="name" placeholder="name" class="form-control"/>
@@ -47,7 +47,6 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
-import Customer from '../models/customer'
 export default {
   name: "Register",
   components: {
@@ -77,7 +76,6 @@ export default {
         .required("Password is required!")
     });
     return {
-      customer:new Customer ('',''),
       successful: false,
       loading: false,
       message: "",
@@ -96,19 +94,16 @@ export default {
   },
   methods: {
     handleRegister(customer) {
-      // console.log("we made it")
       this.message = "";
       this.successful = false;
       this.loading = true;
       this.$store.dispatch("auth/register", customer).then(
-        (data) => {
-          console.log(data)
+        () => {
           this.message = data.message;
           this.successful = true;
           this.loading = false;
         },
         (error) => {
-          console.log(error.message)
           this.message =
             (error.response &&
               error.response.data &&

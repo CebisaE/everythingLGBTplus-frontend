@@ -2,26 +2,23 @@
   <div class="login-box">
   <h2>Login</h2>
   <p>Welcome back please log in to continue !</p>
-   <Form @submit="handleLogin" :validation-schema="schema">
+  <Form @submit="handleLogin" :validation-schema="schema">
     <div class="user-box">
-     <Field name="name" type="text" class="form-control"
-           placeholder="name"/>
-          <ErrorMessage name="name" class="error-feedback" />
-      <label>Name</label>
+    <Field name="email" type="text" class="form-control"
+          placeholder="email"/>
+          <ErrorMessage name="email" class="error-feedback" />
+      <label>Email</label>
     </div>
     <div class="user-box">
       <Field name="password" type="password" class="form-control"
-           placeholder="Password"/>
+          placeholder="Password"/>
           <ErrorMessage name="password" class="error-feedback" />
       <label>Password</label>
     </div>
-    <div class="form-group">
-          <button class="btn btn-primary m-3" :disabled="loading">
-            <span
-              v-show="loading"
-              class="spinner-border spinner-border-sm"
-            ></span>
-            <span>Login</span>
+      <div class="form-group">
+          <button class="submit-btn shadow-sm" :disabled="loading">
+            <span v-show="!loading">Sign in</span>
+            <span v-show="loading" class="load">Signing in...</span>
           </button>
         </div>
         <div class="form-group">
@@ -36,7 +33,6 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
-import Customer from '../models/customer';
 export default {
   name: "Login",
   components: {
@@ -46,16 +42,13 @@ export default {
   },
   data() {
     const schema = yup.object().shape({
-    name: yup.string().required("name is required"),
-    password: yup.string().required("Password is required")
+      email: yup.string().required("email is required!"),
+      password: yup.string().required("Password is required!"),
     });
     return {
-      customer: new Customer('',''),
       loading: false,
       message: "",
       schema,
-    
-     
     };
   },
   computed: {
@@ -63,7 +56,7 @@ export default {
       return this.$store.state.auth.status.loggedIn;
     },
   },
-   created() {
+  created() {
     if (this.loggedIn) {
       this.$router.push("/profile");
     }
@@ -88,7 +81,6 @@ export default {
     },
   },
 };
-
 </script>
 
 <style>
@@ -100,7 +92,11 @@ body {
   padding:0;
   font-family: sans-serif;
 }
+.logout{
+    border-radius: 50%;
+    color: #0000FF;
 
+}
 .login-box {
   position: absolute;
   top: 50%;

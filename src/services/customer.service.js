@@ -3,7 +3,7 @@ import authHeader from './auth-header';
 const API_URL = 'https://everything-lgbt-plus.herokuapp.com/customer';
 class CustomerService {
   getCustomerBoard() {
-    return axios.get(API_URL + 'customer', { headers: authHeader() });
+    return axios.get(API_URL + 'customers', { headers: authHeader() });
   }
   getAdminBoard() {
     return axios.get(API_URL + 'admin', { headers: authHeader() });

@@ -1,6 +1,5 @@
 export default class Customer{
-    constructor(name, email, password) {
-      this.name = name;
+    constructor( email, password) {
       this.email = email;
       this.password = password;
     }

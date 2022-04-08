@@ -24,6 +24,7 @@
         <button class="profile-card__button button--blue js-message-btn">edit profile</button>
         <button class="profile-card__button button--orange">delete</button>
       </div>
+       <button class="btn" @click="logOut">Logout</button>
     </div>
 </div>
   </div>
@@ -40,6 +41,12 @@ export default {
   },
   mounted() {
     if (!this.currentCustomer) {
+      this.$router.push('/login');
+    }
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('auth/logout');
       this.$router.push('/login');
     }
   }
