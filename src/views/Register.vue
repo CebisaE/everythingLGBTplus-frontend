@@ -1,7 +1,7 @@
 <template>
 <div class="login-box">
   <h2>Register</h2>
-  <p>Welcome back please register to continue !</p>
+  <p>Welcome please register to continue !</p>
   <Form @submit="handleRegister" :validation-schema="schema">
       <div v-if="!successful">
     <div class="user-box">
@@ -98,7 +98,7 @@ export default {
       this.successful = false;
       this.loading = true;
       this.$store.dispatch("auth/register", customer).then(
-        () => {
+        (data) => {
           this.message = data.message;
           this.successful = true;
           this.loading = false;

@@ -36,6 +36,18 @@ class AuthService {
       return response.data
     })
   }
+  logout() {
+    localStorage.removeItem('customer');
+  }
+  register(customer) {
+    return axios.post(API_URL + 'signup', {
+      name: customer.name,
+      email: customer.email,
+      phone_number: customer.phone_number,
+      password: customer.password
+
+    });
+  }
 }
 
 export default new AuthService();
