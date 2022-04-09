@@ -48,9 +48,9 @@ export default {
 main{
   margin-top: 115px
 }
- /* #FFFF00 */
- /* #008000 */
- /* #800080 */
- /* #0000FF */
- /* #FF5D33 */
+ /* #FFFF00 yellow */
+ /* #008000 green*/
+ /* #800080 purple*/
+ /* #0000FF blue */
+ /* #FF5D33 orange */
 </style>

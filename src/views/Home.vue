@@ -9,7 +9,8 @@
   </a>
   <h1 class="look">shop your look</h1>
 </div>
-  <p id="desc">Everything LGBT+ clothing store is a shop that allows you to imbrace who you are <br>and look good while at it.</p>
+  <p id="desc">Everything LGBT+ clothing store is a shop that allows you to imbrace who you are 
+  <br>and look good while at it.</p>
 </div>
 </template>
 
@@ -29,6 +30,7 @@ a {
 }
 
 #container {
+  background-color: #111;
   height: 600px;
   width: 900px;
   margin: 7% auto;
@@ -54,6 +56,7 @@ a {
 .button {
   height: 10%;
   border-radius: 90%;
+  color: #FFFF00;
 }
 
 /* text-styling */
@@ -108,6 +111,7 @@ p {
 
 .margin-top {
   margin-top: 135px;
+  color:#800080;
 }
 
 .less-margin {

@@ -45,37 +45,33 @@
 
 <script>
 export default {
-   data() {
-     return {
-       text: '',
-       email: '',
-       textarea: ''
-     }
-   },
-   methods: {
-     handleSubmit() {
-       console.log(this.email, this.text, this.textarea),
-      fetch('https:/everything-lgbt-plus.herokuapp.com/contact', {
-  method: 'POST',
-  body: JSON.stringify({
+  data() {
+    return {
+      text: '',
+      email: '',
+      textarea: ''
+    }
+  },
+  methods: {
+    handleSubmit() {
+      console.log(this.email, this.text, this.textarea)
+        let contact = {
     name: this.name,
     email: this.email,
     textarea: this.textarea,
-  }),
-  headers: {
+  }
+fetch('https:/everything-lgbt-plus.herokuapp.com/contact', {
+  method: 'POST',
+  body: JSON.stringify(contact),
+    headers: {
     'Content-type': 'application/json; charset=UTF-8',
   },
 })
-  .then((response) => response.json())
-  .then((json) => {
-    alert(json.msg)
-    this.text = '',
-    this.email = '',
-    this.textarea = ''
-    })
-  .catch((e) => alert(e.msg));
-     }
-   },
+  .then((response)=> response.json())
+  .then((json)=> alert(json.msg))
+  .catch((e)=> alert(e.msg));
+    }
+  },
 }
 
 </script>
