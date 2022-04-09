@@ -1,43 +1,40 @@
-
-  
 <template>
-  <MDBFooter
-    bg="none"
-    :text="['center', 'black']"
-    style="background-color: #fff"
-    
-    class="footer"
-
-  >
-    <div
-      class="footer-text"
-    >
-      © 2022 Copyright:
-      <p class="text-black" 
-        >Everything LGBT+</p> 
+ <section class="">
+  <!-- Footer -->
+  <footer class="text-center text-white" style="background-color: #0a4275;">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: CTA -->
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center">
+          <span class="me-3">Register for free</span>
+          <button type="button" class="btn btn-outline-light btn-rounded">
+            Sign up!
+          </button>
+        </p>
+      </section>
+      <!-- Section: CTA -->
     </div>
-  </MDBFooter>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-white">EverythingLGBT+</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</section>
 </template>
 
 <script>
-  import { MDBFooter, MDBContainer, MDBBtn } from 'mdb-vue-ui-kit';
   export default {
     components: {
-      MDBFooter,
-      MDBContainer,
-      MDBBtn
+    
     },
   };
 </script>
 <style>
-.footer{
-    padding-bottom: 0;
-    position: fixed;
-    bottom:15px;
-    width: 100%;
-}
-.footer-text{
-  font-size: 30px;
-  font-weight: bold;
-}
+
 </style>
