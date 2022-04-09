@@ -24,11 +24,53 @@
         <button class="profile-card__button button--blue js-message-btn">edit profile</button>
         <button class="profile-card__button button--orange">delete</button>
       </div>
-       <button class="btn" @click.prevent="logout">Logout</button>
+       <button class="profile-card__button button--red" @click.prevent="logout">Logout</button>
     </div>
 </div>
   </div>
   </div>
+
+      <!-- edit customer -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="this.currentCustomer" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit customer profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form >
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label"> Name:</label>
+            <input type="text" class="form-control" id="recipient-name" v-model="updatedCustomer.name" >
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal">CLOSE</button>
+        <button type="button" class="btn btn-primary" @click.prevent="updateCustomer()" >SAVE</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- delete customer -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  v-if="this.currentCustomer">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Removal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       Are you sure you want to delete this customer?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal">CLOSE</button>
+        <button type="button" class="btn btn-danger"  @click.prevent="deleteCustomer()" >YES</button>
+      </div>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
@@ -48,9 +90,63 @@ export default {
     logout() {
       this.$store.dispatch('auth/logout');
       this.$router.push('/login');
-    }
+    },
+      changeCustomerToEdit(customer){
+        this.customerToEdit = customer
+      },
+      async updatecustomer() {
+       try {
+      fetch(`https://everything-lgbt-plus.herokuapp.com/customer/${this.customerToEdit}`,{
+        method: "PUT",
+        body: JSON.stringify({
+          name: this.updatedCustomer.name,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("customer")).accessToken
+          }`,
+        },
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        if(data.message) return alert(data.message)
+        alert("Customer Name Updated!");
+        this.$store.dispatch("auth/logout");
+         this.$router.go()
+        this.$router.push("/dashboard")
+        // this.$router.push("/Login")
+      });
+    } catch (err) {
+      console.error(err)
+      }
+    },
+      async deleteCustomer(){
+      const headers = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("customer")).accessToken
+          }`,
+          },
+      };
+      const new_url ="https://everything-lgbt-plus.herokuapp.com/customer/";
+      try {
+        await axios.delete(new_url + this.customerToEdit, headers, this.currentCustomer).then(() => {
+          alert("customer has been deleted successfully");
+          this.$store.dispatch("auth/logout");
+          this.$router.go()
+        this.$router.push("/dashboard")
+          // this.$router.push("/Login")
+        });
+      } catch(err) {
+        console.error(err);
+      }
+    },
   }
-};
+}
+
 
 </script>
 
@@ -338,12 +434,21 @@ a, a:hover {
 .profile-card__button.button--blue:hover {
   box-shadow: 0px 7px 30px rgba(19, 127, 212, 0.75);
 }
+
 .profile-card__button.button--orange {
   background: linear-gradient(45deg, #d5135a, #f05924);
   box-shadow: 0px 4px 30px rgba(223, 45, 70, 0.35);
 }
 .profile-card__button.button--orange:hover {
   box-shadow: 0px 7px 30px rgba(223, 45, 70, 0.75);
+}
+
+.profile-card__button.button--red {
+  background: linear-gradient(45deg, #d5135a,#FF0000);
+  box-shadow: 0px 4px 30px rgba(228, 48, 73, 0.38);
+}
+.profile-card__button.button--red:hover {
+  box-shadow: 0px 7px 30px rgba(225, 46, 71, 0.78);
 }
 .profile-card__button.button--gray {
   box-shadow: none;
