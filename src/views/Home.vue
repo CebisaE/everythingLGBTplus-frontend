@@ -5,7 +5,7 @@
   <h2 class="less-margin">Where <span class="highlight">Everything</span>  Is </h2>
   <h2 class="less-margins">Pride <span class="highlight">All day everyday</span>.</h2>
   <a href="/about">
-  <button class="button" type="button">About Us</button>
+  <button class="button-h" type="button">About Us</button>
   </a>
   <h1 class="look">shop your look</h1>
 </div>
@@ -53,7 +53,7 @@ a {
   padding: 10px;
 }
 
-.button {
+.button-h {
   height: 10%;
   border-radius: 90%;
   color: #FFFF00;
@@ -62,7 +62,7 @@ a {
 /* text-styling */
 h1 {
   font-family: "Work Sans", sans-serif;
-  color: #111;
+  color: #800080;
   text-transform: uppercase;
   font-size: 3.5em;
   text-shadow: 2px 1px 0px rgba(55, 52, 73, 0.9);
@@ -101,7 +101,7 @@ p {
 
 .look {
   position: absolute;
-  color:  #800080; 
+  color:  #0000FF; 
   right: 5px;
   top: 185px;
   font-size: 2.3em;
@@ -111,7 +111,6 @@ p {
 
 .margin-top {
   margin-top: 135px;
-  color:#800080;
 }
 
 .less-margin {
@@ -119,11 +118,12 @@ p {
   font-weight:bolder;
   font-size:30px;
   gap:10px;
+  color: #0000FF;
 }
 .less-margins {
-  /* margin-top: -25px; */
   font-weight:bolder;
   font-size:30px;
+  color: #0000FF;
 }
 
 </style>
