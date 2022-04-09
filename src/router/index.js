@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
 import Login from '@/views/Login.vue'
-import Admin from '@/views/Admin.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import Register from '@/views/Register.vue'
 import Profile from '@/views/Profile.vue'
@@ -21,11 +20,6 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About
-  },
-  {
-    path: '/admin',
-    name: 'Admin',
-    component: Admin
   },
   {
     path: '/dashboard',
@@ -75,7 +69,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/login','/register','/profile','/','/products','/cart','/contact','/about'];
+  const publicPages = ['/login','/register','/','/products','/contact','/about'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('customer');
   if (authRequired && !loggedIn) {

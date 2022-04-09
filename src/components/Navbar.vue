@@ -35,6 +35,9 @@
             <router-link class="nav-link"  v-if="currentCustomer" :to="{name:'Cart'}">Cart</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link"  :to="{name:'Profile'}">Profile</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link"  :to="{name:'Contact'}">Contact</router-link>
           </li>
         </ul>
