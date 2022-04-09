@@ -1,80 +1,75 @@
 <template>
-  <h1 class="head" style="font-weight: bold;color:#b18044">DASHBOARD</h1>
+   <h1 class="head" style="font-weight: bold;color:#FFFF00">DASHBOARD</h1>
   <div class="border"></div>
   <div class="container">
     <div class="content d-flex" style="width:100%; ">
 
-      <div class="products" style="width:50%;">
+      <div class="stock" style="width:50%;">
         <h1>Products</h1>
         <div v-for="product in products" :key="product.id">
           <div class="productTitle" > 
-            <div class="name" style="font-weight:bold;color:black;font-size:20px;">
+            <div class="name" style="color:#111;font-size:20px;">
               {{product.title}}
-              <button @click="changeCustomerToEdit(product.title)" class="btn" id="edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="fas fa-edit" style="font-size:20px;color:#b18044;"></i></button>
-              <button class="btn" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash" style="font-size:20px;color:#b18044;"></i></button>
+              <button @click="changeProductToEdit(product.title)" class="btn" id="edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="fas fa-edit" style="font-size:20px;"></i></button>
+              <button @click="changeproductToEdit(product.title)" class="btn" id="delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash-alt" style="font-size:20px;"></i></button>
             </div>
+
           </div>
         </div>
       </div>
-
-      <div class="customer" style="width:50%;">
-          <h1>customer</h1>
+    <!-- //list of customers//   -->
+    <div class="clients" style="width:50%;">
+          <h1>Registered Customers</h1>
           <div v-for="customer in customers" :key="customer.id">
             <div class="client" > 
-              <div class="client_content" style="font-weight: 400;color:black">
-                <div class="cname"> <h6 style="font-weight: bold;color:black"> Name:</h6> {{customer.name}}</div>
-                <div class="email"> <h6 style="font-weight: bold;color:black"> Email:</h6> {{customer.email}}</div>
-                <div class="crole"> <h6 style="font-weight: bold;color:black"> Role:</h6> {{customer.roles}}</div>
-                <i class="fas fa-edit" style="font-size:20px;color:white;"></i>
-                <i class="fas fa-trash" style="font-size:20px;color:white;"></i>
+              <div class="client_content" style="font-weight: 400;color:#b18044">
+                <div class="cname"> <h6 style="font-weight: bold;color:#111"> Name:</h6> {{customer.name}}</div>
+                <div class="email"> <h6 style="font-weight: bold;color:#111"> Email:</h6> {{customer.email}}</div>
+                <div class="crole"> <h6 style="font-weight: bold;color:#111"> Role:</h6> {{customer.roles}}</div>
               </div>
             </div>
         </div>
     </div>
 
     </div>
-  </div>
-
-
- <!-- edit modal -->
+    <!-- edit customer -->
  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="this.currentCustomer" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit your Profile</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit customer profile</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form >
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Customer Name:</label>
-            <input type="text" class="form-control" id="recipient-name" v-model="updatedcustomer.name" >
+            <label for="recipient-name" class="col-form-label"> Name:</label>
+            <input type="text" class="form-control" id="recipient-name" v-model="updatedCustomer.name" >
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+        <button type="button" class="btn" data-bs-dismiss="modal">CLOSE</button>
         <button type="button" class="btn btn-primary" @click.prevent="updateCustomer()" >SAVE</button>
       </div>
     </div>
   </div>
 </div>
-
-
-<!-- delete modal  -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  v-if="this.currentUser">
+  </div>
+  <!-- delete customer -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  v-if="this.currentCustomer">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Everything LGBT+</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Removal</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
        Are you sure you want to delete this customer?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-        <button type="button" class="btn btn-primary"  @click.prevent="deleteCustomer()" >YES</button>
+        <button type="button" class="btn" data-bs-dismiss="modal">CLOSE</button>
+        <button type="button" class="btn btn-danger"  @click.prevent="deleteCustomer()" >YES</button>
       </div>
     </div>
   </div>
@@ -88,8 +83,8 @@ export default {
             return {
                 customers:[],
                 products:[],
-                updatedcustomer:{
-                name:"",
+                updatedCustomer:{
+                  name:"",
                 },
                 customerToEdit: ''
                 
@@ -141,6 +136,8 @@ export default {
         if(data.message) return alert(data.message)
         alert("Customer Name Updated!");
         this.$store.dispatch("auth/logout");
+         this.$router.go()
+        this.$router.push("/dashboard")
         // this.$router.push("/Login")
       });
     } catch (err) {
@@ -161,6 +158,8 @@ export default {
         await axios.delete(new_url + this.customerToEdit, headers, this.currentCustomer).then(() => {
           alert("customer has been deleted successfully");
           this.$store.dispatch("auth/logout");
+          this.$router.go()
+        this.$router.push("/dashboard")
           // this.$router.push("/Login")
         });
       } catch(err) {
@@ -172,7 +171,12 @@ export default {
 
 </script>
 <style>
-
+.fas{
+  background: transparent;
+}
+.fas:hover{
+  color: #FF5D33;
+}
 .head{
     padding-top:100px;
     
@@ -190,20 +194,18 @@ export default {
    align-items: center;
  }
 }
-
-.customerName{
+.productTitle{
   padding: 0.5em;
   margin-bottom: 20px;
-  background: white;
-  border-radius:3px;
+  border:1px solid #0000FF;
+  border-radius:7px;
   margin-right: 5px;
 }
-.customer{
-
+.client{
   padding: 0.5em;
   margin-bottom: 20px;
-  background: #fff;
-  border-radius:3px;
+  border:1px solid #111;
+  border-radius:7px;
   margin-right: 5px;
   height: auto;
 }
@@ -212,7 +214,7 @@ export default {
   padding: 0.5em;
   
 }
-.customer_content{
+.client_content{
   background: transparent;
   padding: 0.5em;
   
@@ -226,4 +228,5 @@ export default {
 .crole{
   background: transparent;
 }
+
 </style>
