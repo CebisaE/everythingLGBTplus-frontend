@@ -75,7 +75,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/login','/register','/','/products','/contact','/about'];
+  const publicPages = ['/login','/register','/profile','/','/products','/contact','/about'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('customer');
   if (authRequired && !loggedIn) {

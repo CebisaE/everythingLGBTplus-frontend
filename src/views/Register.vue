@@ -99,10 +99,8 @@ export default {
       this.successful = false;
       this.loading = true;
       this.$store.dispatch("auth/register", customer).then(
-        (data) => {
-          this.message = data.message;
-          this.successful = true;
-          this.loading = false;
+        () => {
+          this.$router.push("/profile");
         },
         (error) => {
           this.message =

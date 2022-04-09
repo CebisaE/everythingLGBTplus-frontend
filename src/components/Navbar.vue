@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-light bg-light fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand"><img src="https://i.postimg.cc/nryxFKvr/rsz-1download.png" class="logo">Everything LGBT+</a>
+    <a class="navbar-brand">Everything LGBT+</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -73,8 +73,4 @@ export default {
 </script>
 
 <style>
-.logo{
-  border-radius: 90%;
-}
-
 </style>
