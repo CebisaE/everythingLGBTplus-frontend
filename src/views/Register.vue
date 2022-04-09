@@ -54,7 +54,7 @@ export default {
     Field,
     ErrorMessage,
   },
-  data() {
+   data() {
     const schema = yup.object().shape({
       name: yup
         .string()
@@ -66,14 +66,15 @@ export default {
         .required("Email is required!")
         .email("Email is invalid!")
         .max(50, "Must be maximum 50 characters!"),
+      phone_number: yup
+        .string()
+        .required("phone_number is required!")
+        .max(10, "Must be maximum 10 characters!"),
       password: yup
         .string()
         .required("Password is required!")
         .min(6, "Must be at least 6 characters!")
         .max(40, "Must be maximum 40 characters!"),
-     phone_number: yup
-        .string()
-        .required("Password is required!")
     });
     return {
       successful: false,
@@ -117,6 +118,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style>
