@@ -20,17 +20,17 @@
               <strong>Cart items:{{currentCustomer.cart}}</strong>
           </div>
         </div>
-      <div class="profile-card-ctr">
+      <!-- <div class="profile-card-ctr">
         <button class="profile-card__button button--blue js-message-btn">edit profile</button>
         <button class="profile-card__button button--orange">delete</button>
-      </div>
+      </div> -->
        <button class="profile-card__button button--red" @click.prevent="logout">Logout</button>
     </div>
 </div>
   </div>
   </div>
 
-      <!-- edit customer -->
+      <!-- edit customer
  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" v-if="this.currentCustomer" >
   <div class="modal-dialog">
     <div class="modal-content">
@@ -52,9 +52,9 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
   <!-- delete customer -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  v-if="this.currentCustomer">
+<!-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  v-if="this.currentCustomer">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -70,7 +70,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 </template>
 
 <script>

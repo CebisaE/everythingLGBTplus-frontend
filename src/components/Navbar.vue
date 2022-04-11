@@ -1,24 +1,19 @@
 <template>
-  <nav class="navbar navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand">Everything LGBT+</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+    <a class="navbar-brand" href="#">Everything LGBT+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Everything LGBT+</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+       <li class="nav-item">
             <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
           </li>
-          <li class="nav-item">
+        <li class="nav-item">
             <router-link class="nav-link" :to="{name:'About'}">About</router-link>
           </li>
-          <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Join Us
             </a>
@@ -34,15 +29,14 @@
           <li class="nav-item">
             <router-link class="nav-link"  v-if="currentCustomer" :to="{name:'Cart'}">Cart</router-link>
           </li>
+          
           <li class="nav-item">
             <router-link class="nav-link"  :to="{name:'Profile'}">Profile</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link"  :to="{name:'Contact'}">Contact</router-link>
           </li>
-        </ul>
-       
-      </div>
+      </ul>
     </div>
   </div>
 </nav>
@@ -51,12 +45,12 @@
 <script>
    import { ref } from 'vue';
 export default {
-//  computed: {
-//     currentCustomer() {
-//       return this.$store.state.auth.customer;
-//     },
+ computed: {
+    currentCustomer() {
+      return this.$store.state.auth.customer;
+    },
    
-//   },
+  },
     setup() {
       const collapse6 = ref(false);
       const dropdown9 = ref(false);

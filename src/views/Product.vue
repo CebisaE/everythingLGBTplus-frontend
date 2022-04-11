@@ -1,7 +1,8 @@
 <template>
-<div class="contained">
+<div class="container">
+  <h1>WELCOME TO THE THE PRODUCTS SECTION</h1>
 <div class="sortBar">
-      <label>
+      <label class="sort">
         Sort Price:
         <select v-model="price" @change="sortPrice(price)">
             <option value="">All</option>
@@ -9,7 +10,7 @@
           <option value="desc">Descending</option>
         </select>
       </label>
-      <label>
+      <label class="sort">
         Sort Name:
         <select v-model="name" @change="sortName(name)">
             <option value="">All</option>
@@ -17,24 +18,26 @@
           <option value="desc">Descending</option>
         </select>
       </label>
+       <label>
+        <input type="search" placeholder="Search" aria-label="Search">
+        <button type="submit">Search</button>
+      </label>
     </div>
- 
-    <div id="products">
- <div v-for="product in products" :key="product.id"> 
-    <div class="card  row col-10 mt-5" v-if="products" > 
-      <div class="col-sm-3">  
-      <img class=' img-thumbnail' :src="product.img" width="96" height="200" alt="" />
-        <div class="card-body text-center">
-            <div class='cvp'>
-                <h5 class="card-title font-weight-bold">{{product.title}}</h5>
-                <p class="card-text">R{{product.price}}</p> 
-                <router-link :to="{name:'ProductDetails', params: {id: product._id}}">
+    
+</div>
+ <div id="products">
+   <div class="container">
+<div v-for="product in products" :key="product.id"> 
+    <div class="card" style="width: 18rem;" v-if="products" >
+  <img :src="product.img" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}</h5>
+    <p class="card-text">R{{product.price}}</p>
+    <a><router-link :to="{name:'ProductDetails', params: {id: product._id}}">
                     VIEW PRODUCT
-                </router-link>
-            </div>
-        </div>
-      </div>
-    </div>
+    </router-link></a>
+  </div>
+</div>
 </div>
 </div>
 </div>
@@ -89,7 +92,7 @@ methods:{
 
 </script>
 
-<style>
+<style scoped>
  a {
     color: #4fc08d;
   }
@@ -101,11 +104,12 @@ methods:{
   button,
   select,
   input {
-    color: #4fc08d;
+    color: #fff;
     background: none;
-    border: solid 1px;
+    border: solid 9px;
     border-radius: 2em;
     font: inherit;
+    font-size: 20px;
     padding: 0.75em 2em;
     cursor: pointer;
   }
@@ -124,8 +128,6 @@ methods:{
         color: #4fc08d;
       }
 
-
-  
 .details {
     border: 1.5px solid grey;
     color: #212121;
@@ -134,29 +136,12 @@ methods:{
     box-shadow: 0px 0px 10px #212121
 }
 
-.cart {
-    background-color: #212121;
-    color: white;
-    margin-top: 10px;
-    font-size: 12px;
-    font-weight: 900;
-    width: 100%;
-    height: 39px;
-    padding-top: 9px;
-    box-shadow: 0px 5px 10px #212121
-}
-#products{
+.container{
   display: flex;
   flex-direction:row;
   flex-wrap:wrap;
-}
-.card {
-    width: fit-content
-}
-
-.card-body {
-    width: fit-content;
-    justify-content:center;
+  justify-content: space-evenly;
+  gap:10px
 }
 
 .btn {
@@ -166,16 +151,17 @@ methods:{
 .img-thumbnail {
     border: none;
     width: 50%;
-    height: 50%
+    height: 10%
 }
 
 .card {
     box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
     border-radius: 5px;
-    padding-bottom: 10px
 }
 .sortBar {
   padding: 20px;
-  margin-top: 10%;
+}
+.sort{
+  color: #fff;
 }
 </style>

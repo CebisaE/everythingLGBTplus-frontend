@@ -8,7 +8,7 @@
         <h1>Products</h1>
         <div v-for="product in products" :key="product.id">
           <div class="productTitle" > 
-            <div class="name" style="color:#111;font-size:20px;">
+            <div class="name" style="color:#111;font-size:30px;">
               {{product.title}}
             </div>
 
@@ -20,7 +20,7 @@
           <h1>Registered Customers</h1>
           <div v-for="customer in customers" :key="customer._id">
             <div class="client" > 
-              <div class="client_content" style="font-weight: 400;color:#b18044">
+              <div class="client_content" style="font-weight: 900;color:#111">
                 <div class="cname"> <h6 style="font-weight: bold;color:#111"> Name:</h6> {{customer.name}}</div>
                 <div class="email"> <h6 style="font-weight: bold;color:#111"> Email:</h6> {{customer.email}}</div>
                 <div class="crole"> <h6 style="font-weight: bold;color:#111"> Role:</h6> {{customer.roles}}</div>
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-
+    </div>
     </div>
 </template>
 <script>
@@ -79,7 +79,7 @@ export default {
   color: #FF5D33;
 }
 .head{
-    padding-top:100px;
+    padding-top:-27px;
     
 }
 .border{
@@ -98,14 +98,14 @@ export default {
 .productTitle{
   padding: 0.5em;
   margin-bottom: 20px;
-  border:1px solid #0000FF;
+  border:5px solid #111;
   border-radius:7px;
   margin-right: 5px;
 }
 .client{
   padding: 0.5em;
   margin-bottom: 20px;
-  border:1px solid #111;
+  border:5px solid #111;
   border-radius:7px;
   margin-right: 5px;
   height: auto;

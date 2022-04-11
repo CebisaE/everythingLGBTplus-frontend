@@ -10,24 +10,24 @@
         
         <li>
           <p class="left">
-            <label for="first_name">first name</label>
+            <label for="first_name" class="titles">first name</label>
             <input type="text" name="first_name" placeholder="John"  v-model="text"/>
           </p>
           <p class="pull-right">
-            <label for="last_name">last name</label>
-            <input type="text" name="last_name" placeholder="Smith" v-model="text"/>      
+            <label for="last_name" class="titles">last name</label>
+            <input type="" name="last_name" placeholder="Smith"/>      
           </p>
         </li>
         
         <li>
           <p>
-            <label for="email">email <span class="req">*</span></label>
+            <label for="email" class="titles">email <span class="req">*</span></label>
             <input type="email" name="email" placeholder="john.smith@gmail.com" v-model="email" />
           </p>
         </li>        
         <li><div class="divider"></div></li>
         <li>
-          <label for="message">message</label>
+          <label for="message" class="titles">message</label>
           <textarea cols="46" rows="3" name="message" required v-model="textarea"></textarea>
         </li>
         
@@ -45,38 +45,16 @@
 
 <script>
 export default {
-  data() {
-    return {
-      text: '',
-      email: '',
-      textarea: ''
-    }
-  },
-  methods: {
-    handleSubmit() {
-      console.log(this.email, this.text, this.textarea)
-        let contact = {
-    name: this.name,
-    email: this.email,
-    textarea: this.textarea,
-  }
-fetch('https:/everything-lgbt-plus.herokuapp.com/contact', {
-  method: 'POST',
-  body: JSON.stringify(contact),
-    headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response)=> response.json())
-  .then((json)=> alert(json.msg))
-  .catch((e)=> alert(e.msg));
-    }
-  },
 }
 
 </script>
 
 <style>
+.titles {
+  color:#fff;
+  font-size:20px;
+  font-weight:bold;
+}
 div, textarea, input {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -84,12 +62,9 @@ div, textarea, input {
 }
 
 .container {
-  /* max-width: 300px; */
-  /* min-width: 300px; */
-  margin: 205px auto 0px;
-  background-color: #fff;
-  border: 1px solid #cfcfcf;
-  border-bottom: 3px solid #ccc;
+  background-color:transparent;
+  border: 5px solid #111;
+  /* border-bottom: 3px solid #ccc; */
 }
 
 .row {
@@ -98,12 +73,8 @@ div, textarea, input {
   padding: 0 2.5em;
 }
 .row.header {
-  /* padding: 1.5em 2.5em; */
-  border-bottom: 1px solid #ccc;
-  background: url(https://i.postimg.cc/NFPCX9Ny/download.jpg);
-  background-repeat: no-repeat;
-  background-size:cover;
-  color: #111;
+  border-bottom: 4px solid #ccc;
+  color: #fff;
 }
 .row.body {
   padding: .5em 2.5em 1em;

@@ -1,4 +1,5 @@
 <template>
+<div id="register">
 <div class="login-box">
   <h2>Register</h2>
   <p>Welcome please register to continue !</p>
@@ -41,6 +42,7 @@
         class="alert"
         :class="successful ? 'alert-success' : 'alert-danger'"
       >{{message}}</div>
+</div>
 </div>
 </template>
 
@@ -120,8 +122,8 @@ export default {
 </script>
 
 <style>
-html {
-  height: 100%;
+#register {
+  height: 35rem;
 }
 body {
   margin:0;

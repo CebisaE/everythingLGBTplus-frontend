@@ -50,7 +50,7 @@ const store = createStore({
       .catch((err) => console.log(err));
     },
     getCustomers({commit}){
-    fetch("https://everything-lgbt-plus.herokuapp.com/customers")
+    fetch("https://everything-lgbt-plus.herokuapp.com/customer")
       .then((res) => res.json())
        .then((data) => {
           console.log(data)

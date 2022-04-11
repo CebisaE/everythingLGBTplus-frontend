@@ -8,6 +8,7 @@ import Profile from '@/views/Profile.vue'
 import Products from '@/views/Product.vue'
 import ProductDetails from '@/views/ProductDetails.vue'
 import Cart from '@/views/Cart.vue'
+// import CartItem from '@//CartItem.vue'
 import Contact from '@/views/Contact.vue'
 
 const routes = [
@@ -56,6 +57,11 @@ const routes = [
     name: 'Cart',
     component: Cart
   },
+  // {
+  //   path: '/cartitem',
+  //   name: 'CartItem',
+  //   component: CartItem
+  // },
   {
     path: '/contact',
     name: 'Contact',

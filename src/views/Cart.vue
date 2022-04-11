@@ -1,7 +1,9 @@
 <template>
   <div class="container" style="padding: 30px">
     <div class="row d-flex justify-content-center">
+      <h1>WELCOME TO YOUR CART</h1>
       <div class="list-group col-8">
+
         <a
           v-for="product in cart"
           :key="product.id"
@@ -14,21 +16,25 @@
               <p>Unique Price</p>
               <p>R{{ product.price }}</p>
             </div>
-            <div class="mr-2">
+            <!-- <div class="mr-2">
               <p>Total Price</p>
               <p>R{{ price * quantity }}</p>
             </div>
+            <div>
+              <p>Quantity</p>
+              <p>{{ product.quantity }}</p>
+              </div> -->
           </div>
         </a>
-        <div
+        <!-- <div
           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
         >
           <p class="h4">Total</p>
           <div>
             <p>Total Price</p>
-            <p>${{ totalPrice }}</p>
+            <p>${{ Price }}</p>
           </div>
-        </div>
+        </div> -->
          <button class="btn btn-danger" @click="deleteCart()">remove</button>
         <button
           @click="handlecheckout()"
@@ -48,19 +54,16 @@ export default {
     return {
       page: 'cart',
       products: [],
-      text: '',
-      email: '',
-      textarea: '',
       cart: JSON.parse(localStorage.getItem('cart'))
 
     };
   },
   mounted() {
-    fetch("https://everything-lgbt-plus.herokuapp.com/products")
+    fetch("https://everything-lgbt-plus.herokuapp.com/cart/:token")
       .then((res) => res.json())
       .then((data) => {
         this.products = data;
-        console.log(data, this.movies);
+        // console.log(data, this.movies);
       })
   },
   components: {Products}

@@ -28,9 +28,11 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
-  color: #111;
-  /* overflow-y: hidden; */
+  /* color: #111; */
+  background: url("https://images.unsplash.com/photo-1545231097-cbd796f1d95f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1095&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* max-height: 100vh; */
 }
 
 
@@ -38,7 +40,6 @@ export default {
 #nav a {
   font-weight: bolder;
   font-size: 30px;
-  /* color: #111; */
 }
 
 #nav a.router-link-exact-active {

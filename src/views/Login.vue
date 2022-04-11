@@ -1,4 +1,6 @@
 <template>
+<div id="login">
+<div class="contained">
   <div class="login-box">
   <h2>Login</h2>
   <p>Welcome back please log in to continue !</p>
@@ -27,6 +29,8 @@
           </div>
           </div>
   </Form>
+</div>
+</div>
 </div>
 </template>
 
@@ -84,14 +88,12 @@ export default {
 </script>
 
 <style>
-html {
-  height: 100%;
+#login {
+  height: 35rem;
 }
-body {
-  margin:0;
-  padding:0;
-  font-family: sans-serif;
-}
+
+
+
 .logout{
     border-radius: 50%;
     color: #0000FF;
@@ -104,7 +106,7 @@ body {
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  background: #fff;
+  /* background: #fff; */
   box-sizing: border-box;
   border-radius: 10px;
 }
