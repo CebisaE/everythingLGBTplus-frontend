@@ -78,7 +78,7 @@ p {
 #desc {
   /* position: absolute; */
   /* top: 77%; */
-  padding: 10rem;
+  padding: 2rem;
   color:#fff;
   font-size:25px;
   font-weight: bold;
